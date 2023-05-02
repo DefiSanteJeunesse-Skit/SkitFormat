@@ -6,9 +6,9 @@
   --bg-color: red; /*global chat bg color*/
   --user-color: #417505; /*user name & placeholder avatar bg*/
   --speaker-color: #888; /*default color for speaker name & placeholder avatar bg*/
-  --sidebar-bg-color: #FFF;
-  --navbar-bg-color: #FFF;
-  --passage-bg-color: #FFF;
+  --sidebar-bg-color: #fff;
+  --navbar-bg-color: #fff;
+  --passage-bg-color: #fff;
   --passage-text-color: #000;
 }
 
@@ -19,7 +19,10 @@
 }
 
 .minh-full {
-  min-height: calc(100vh - var(--navbar-height) - var(--user-response-panel-height) - 17px - 5px);
+  min-height: calc(
+    100vh - var(--navbar-height) - var(--user-response-panel-height) - 17px -
+      5px
+  );
 }
 
 .ml--3 {
@@ -43,7 +46,9 @@ body {
 
 body {
   padding-top: var(--navbar-height);
-  margin-bottom: calc(var(--user-response-panel-height) + 18px + 5px); /* + height of hint + hr */
+  margin-bottom: calc(
+    var(--user-response-panel-height) + 18px + 5px
+  ); /* + height of hint + hr */
 }
 
 /* Offcanvas sidebar */
@@ -62,7 +67,7 @@ body {
     visibility: hidden;
     background-color: var(--sidebar-bg-color);
     transition-timing-function: ease-in-out;
-    transition-duration: .3s;
+    transition-duration: 0.3s;
     transition-property: left, visibility;
   }
   .offcanvas-collapse.open {
@@ -76,8 +81,8 @@ body {
 nav.navbar {
   height: var(--navbar-height);
   background-color: var(--navbar-bg-color);
-  padding: .5rem 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 0.5rem 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav .nav-title {
@@ -106,20 +111,20 @@ nav a.content-container:not(:first-child) {
 
 .chat-passage-wrapper {
   position: relative;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
-.chat-passage-wrapper[data-speaker='you'] {
+.chat-passage-wrapper[data-speaker="you"] {
   text-align: right;
 }
-.chat-passage-wrapper[data-speaker='you'] .chat-passage:before {
+.chat-passage-wrapper[data-speaker="you"] .chat-passage:before {
   text-align: right;
   color: var(--user-color);
 }
 
 .chat-passage {
   display: inline-block;
-  padding: 0.25rem .5rem;
+  padding: 0.25rem 0.5rem;
   margin-left: 35px;
   background-color: var(--passage-bg-color);
   max-width: calc(100% - 80px);
@@ -144,7 +149,7 @@ nav a.content-container:not(:first-child) {
 .chat-passage:before {
   content: attr(data-speaker);
   display: block;
-  font-size: .75rem;
+  font-size: 0.75rem;
   text-transform: capitalize;
   color: var(--speaker-color);
 }
@@ -156,7 +161,7 @@ nav a.content-container:not(:first-child) {
 .chat-passage img {
   max-width: 100%;
   max-height: calc(100vh - 2 * var(--user-response-panel-height));
-  padding: .25rem 0;
+  padding: 0.25rem 0;
 }
 .chat-passage iframe {
   max-width: 100%;
@@ -164,8 +169,8 @@ nav a.content-container:not(:first-child) {
 }
 
 .chat-passage figure {
-  margin-bottom: .25rem;
-  font-size: .75rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
 }
 
 .meta-passage {
@@ -183,7 +188,9 @@ nav a.content-container:not(:first-child) {
 }
 @media (min-width: 992px) {
   .user-response-panel {
-    max-width: calc(100% / (12/6)); /* 100% / (12/[col width of chat-panel]) */
+    max-width: calc(
+      100% / (12 / 6)
+    ); /* 100% / (12/[col width of chat-panel]) */
     margin: 0 auto;
   }
 }
@@ -195,32 +202,42 @@ nav a.content-container:not(:first-child) {
 
 .user-response-hint {
   font-style: italic;
-  font-size: .75rem;
+  font-size: 0.75rem;
   text-align: center;
   height: 18px;
 }
 @media (max-width: 379.98px) {
   .user-response-hint {
-    font-size: .6rem;
+    font-size: 0.6rem;
     height: 14px;
   }
   body {
-    margin-bottom: calc(var(--user-response-panel-height) + 14px + 5px); /* + height of hint + hr */
+    margin-bottom: calc(
+      var(--user-response-panel-height) + 14px + 5px
+    ); /* + height of hint + hr */
   }
   .minh-full {
-    min-height: calc(100vh - var(--navbar-height) - var(--user-response-panel-height) - 14px - 5px);
+    min-height: calc(
+      100vh - var(--navbar-height) - var(--user-response-panel-height) - 14px -
+        5px
+    );
   }
 }
 @media (max-width: 319.98px) {
   .user-response-hint {
-    font-size: .5rem;
+    font-size: 0.5rem;
     height: 12px;
   }
   body {
-    margin-bottom: calc(var(--user-response-panel-height) + 12px + 5px); /* + height of hint + hr */
+    margin-bottom: calc(
+      var(--user-response-panel-height) + 12px + 5px
+    ); /* + height of hint + hr */
   }
   .minh-full {
-    min-height: calc(100vh - var(--navbar-height) - var(--user-response-panel-height) - 12px - 5px);
+    min-height: calc(
+      100vh - var(--navbar-height) - var(--user-response-panel-height) - 12px -
+        5px
+    );
   }
 }
 
@@ -233,8 +250,8 @@ nav a.content-container:not(:first-child) {
 
 .user-response-panel .user-response {
   display: inline-block;
-  padding: .5rem;
-  margin: .25rem;
+  padding: 0.5rem;
+  margin: 0.25rem;
   background-color: var(--passage-bg-color);
   color: var(--passage-text-color);
   border-top: 2px solid transparent;
@@ -258,10 +275,10 @@ nav a.content-container:not(:first-child) {
   border-radius: 15px;
   background-color: var(--speaker-color);
 }
-.chat-passage-wrapper[data-speaker='you']:before {
+.chat-passage-wrapper[data-speaker="you"]:before {
   display: none;
 }
-.chat-passage-wrapper[data-speaker='you']:after {
+.chat-passage-wrapper[data-speaker="you"]:after {
   margin-left: -30px;
   position: absolute;
   vertical-align: top;
@@ -272,7 +289,7 @@ nav a.content-container:not(:first-child) {
   border-radius: 15px;
   background-color: var(--user-color);
 }
-.chat-passage[data-speaker='you'] {
+.chat-passage[data-speaker="you"] {
   margin-left: 0;
   margin-right: 35px;
 }
@@ -280,20 +297,19 @@ nav a.content-container:not(:first-child) {
 /* Typing Animation */
 
 div.wave {
-  position:relative;
-  text-align:center;
+  position: relative;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 div.wave .dot {
-  display:inline-block;
+  display: inline-block;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   margin-right: 2px;
   background: var(--passage-text-color);
   animation: wave 1.2s ease-in-out infinite;
-
 }
 div.wave .dot:nth-child(2) {
   animation-delay: 0.1s;
@@ -304,7 +320,9 @@ div.wave .dot:nth-child(3) {
 }
 
 @keyframes wave {
-  0%, 50%, 100% {
+  0%,
+  50%,
+  100% {
     transform: initial;
   }
 
