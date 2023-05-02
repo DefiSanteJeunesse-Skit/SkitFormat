@@ -350,3 +350,40 @@ body.modal-open .user-response-panel {
 body.modal-open nav.navbar {
   padding-right: 15px !important;
 }
+
+/*
+ * Characters style
+ *
+ */
+
+/* PLAYER */
+.chat-passage-wrapper[data-speaker='you']:after {
+  background-image: url('https://placekitten.com/100/100');
+}
+.chat-passage-wrapper[data-speaker='you'] .chat-passage::before {
+  color: green;
+}
+
+/* NATHAN */
+.chat-passage-wrapper[data-speaker='nathan']:before {
+  background-image: url('https://placekitten.com/100/98');
+}
+.chat-passage-wrapper[data-speaker='nathan'] .chat-passage::before {
+  color: red;
+}
+
+/* MARIE */
+.chat-passage-wrapper[data-speaker='marie']:before {
+  background-image: url('https://placekitten.com/100/99');
+}
+.chat-passage-wrapper[data-speaker='marie'] .chat-passage::before {
+  color: purple;
+}
+
+/* LUCAS */
+.chat-passage-wrapper[data-speaker='lucas']:before {
+  background-image: url('https://placekitten.com/100/97');
+}
+.chat-passage-wrapper[data-speaker='lucas'] .chat-passage::before {
+  color: orange;
+}
