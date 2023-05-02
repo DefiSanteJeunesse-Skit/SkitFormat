@@ -1,10 +1,10 @@
 {
-  "name": "Trialogue",
+  "name": "SkitFormat",
   "version": "0.1.1",
-  "description": "A chat style story format based on Paloma",
-  "author": "Philo van Kemenade",
+  "description": "A chat style story format based on Trialogue",
+  "author": "DefiSanteJeunesse-Skit",
   "license": "MIT",
-  "repository": "https://github.com/phivk/trialogue",
+  "repository": "https://github.com/DefiSanteJeunesse-Skit/trialogue",
   "config": {
     "distDir": "dist/"
   },
