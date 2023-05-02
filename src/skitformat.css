@@ -3,7 +3,7 @@
 :root {
   --navbar-height: 56px;
   --user-response-panel-height: 110px;
-  --bg-color: red; /*global chat bg color*/
+  --bg-color: rgb(177, 203, 206); /*global chat bg color*/
   --user-color: #417505; /*user name & placeholder avatar bg*/
   --speaker-color: #888; /*default color for speaker name & placeholder avatar bg*/
   --sidebar-bg-color: #fff;
