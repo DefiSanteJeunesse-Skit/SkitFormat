@@ -368,7 +368,7 @@ _.extend(Story.prototype, {
 				// show new passage, without moving the current passage into history, as that has been done already
 				var targetName = $(e.target).closest('[data-passage]').attr('data-passage');
 				var passageDelay = this.getPassageDelay(targetName);
-				this.showDelayed(targetName, 0, false, true);
+				this.showDelayed(targetName, 0, 0, false, true);
 			}
 		}.bind(this));
 
@@ -742,9 +742,12 @@ _.extend(Story.prototype, {
 
 	 @method showDelayed
 	 @param idOrName {String or Number} ID or name of the passage
+	 @param extraMessageDelay {Number} extra delay before the message starts being typed
+	 @param extraTypingDelay {Number} extra duration during which the message is being typed
 	**/
 
-	showDelayed: function (idOrName, extraDelay = 0, noHistory, noMove) {
+	showDelayed: function (idOrName, extraMessageDelay=0, extraTypingDelay=0, noHistory, noMove) {
+		var messageDelay = this.messageDelay + extraMessageDelay
 		var typingDurationMS = 0;
 
 		var speaker = this.getPassageSpeaker(this.passage(idOrName));
@@ -755,9 +758,9 @@ _.extend(Story.prototype, {
 				function(){
 					story.showTyping(idOrName);
 				},
-				this.messageDelay
+				messageDelay
 			);
-			typingDurationMS = this.getPassageDelay(idOrName) + extraDelay
+			typingDurationMS = this.getPassageDelay(idOrName) + extraTypingDelay
 		}
     
 		this.delayedPassageEvent = _.delay(
@@ -765,7 +768,7 @@ _.extend(Story.prototype, {
 				story.hideTyping();
 				story.show(idOrName, noHistory, noMove);
 			},
-			this.messageDelay + typingDurationMS
+			messageDelay + typingDurationMS
 		);
 
 	},
