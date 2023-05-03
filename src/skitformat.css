@@ -35,7 +35,7 @@
   /* User Response */
   --user-response-corner-radius: var(--size-normal);
   --user-response-bg-color: #00bcd4;
-  --user-response-wrapper-bg-color: #cae2ed;
+  --user-response-wrapper-bg-color: #ffffff;
 
   /* Blur Surface */
   --blur-surface-blur-amount: 4em;
@@ -224,8 +224,6 @@ nav a.content-container:not(:first-child) {
 .user-response-panel {
   display: flex;
   flex-direction: column;
-  padding: 0 var(--size-normal);
-  background: transparent;
   background: rgb(255,255,255);
   background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 84%, rgba(255,255,255,0) 100%);
 }

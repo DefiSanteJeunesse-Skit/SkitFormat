@@ -689,7 +689,6 @@ _.extend(Story.prototype, {
 
 	 @method getPassageStyle
 	 @param passage {Passage} current window.passage object
-	 @return {String} Style name of passage
 	**/
 	
 	getPassageStyle: function(passage) {
@@ -703,9 +702,20 @@ _.extend(Story.prototype, {
 		if (typeof styleTag === 'undefined') {
 			return 'undefined';
 		}
-		return styleTag;
+		updateChatTheme(styleTag.substring(6));
 	},
 	
+	/**
+	 Update Chat Style
+
+	 @method updateChatTheme
+	 @param newStyle {newTheme} current window.passage object
+	**/
+
+	updateChatTheme: function(newTheme) {
+		document.documentElement.setAttribute("theme", newTheme)
+	}
+
 	/**
 	 Returns the HTML source for a passage. This is most often used when
 	 embedding one passage inside another. In this instance, make sure to
