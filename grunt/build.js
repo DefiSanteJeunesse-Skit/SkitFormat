@@ -74,7 +74,8 @@ module.exports = function (grunt) {
 		grunt.file.write('build/format.html', template(data));
 	});
 
-	grunt.registerTask('build', ['browserify:default', 'cssmin', 'html:test']);
+	// grunt.registerTask('build', ['browserify:default', 'cssmin', 'html:test']);
+	grunt.registerTask('build', ['browserify:default', 'cssmin']);
 	grunt.registerTask('build:release', ['browserify:release', 'cssmin', 'html:release']);
 	grunt.registerTask('default', ['build']);
 	grunt.registerTask('dev', ['build', 'watch']);
