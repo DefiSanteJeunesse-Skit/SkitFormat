@@ -714,7 +714,7 @@ _.extend(Story.prototype, {
 
 	updateChatTheme: function(newTheme) {
 		document.documentElement.setAttribute("theme", newTheme)
-	}
+	},
 
 	/**
 	 Returns the HTML source for a passage. This is most often used when
