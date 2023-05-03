@@ -504,7 +504,9 @@ _.extend(Story.prototype, {
 
 		var speaker = this.getPassageSpeaker(passage);
 
-		var passageElem;
+		var style = this.getPassageStyle(passage);
+
+    	var passageElem;
 		if (speaker == 'undefined') {
 			passageElem = $('<div class="meta-passage">' + passage.render() + '</div>');
 		} else {
@@ -702,7 +704,7 @@ _.extend(Story.prototype, {
 		if (typeof styleTag === 'undefined') {
 			return 'undefined';
 		}
-		updateChatTheme(styleTag.substring(6));
+		this.updateChatTheme(styleTag.substring(6));
 	},
 	
 	/**
