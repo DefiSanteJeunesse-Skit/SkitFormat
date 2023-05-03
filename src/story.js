@@ -128,14 +128,14 @@ var Story = function() {
 	this.recent_dom = [];
 
 	/**
-   An array of passage IDs, one for each passage viewed since 
+	 An array of passage IDs, one for each passage viewed since 
 	 the last response.
 
-   @property recent
-   @type Array
-  **/
+	 @property recent
+	 @type Array
+	**/
 
-  this.recent = [];
+	this.recent = [];
 
 	/**
 	 An object that stores data that persists across a single user session.
@@ -210,6 +210,15 @@ var Story = function() {
 	this.delayedPassageEvent = null;
 
 	/**
+	 The minimum amount of time in milliseconds that a passage will be delayed
+
+	 @property minPassageDelay
+	 @type Number
+	**/
+
+	this.minPassageDelay = 1500;
+
+	/**
 	 The maximum amount of time in milliseconds that a passage will be delayed
 
 	 @property maxPassageDelay
@@ -217,6 +226,15 @@ var Story = function() {
 	**/
 
 	this.maxPassageDelay = 10000;
+
+	/**
+	 The amount of time in milliseconds before next message will be displayed
+
+	 @property messageDelay
+	 @type Number
+	**/
+
+	this.messageDelay = 1500;
 
 	var p = this.passages;
 
@@ -695,21 +713,19 @@ _.extend(Story.prototype, {
 	**/
 
 	showDelayed: function (idOrName, noHistory, noMove) {
-		var typingDelayRatio = 0.3;
-		var delayMS = this.getPassageDelay(idOrName);
+		var typingDurationMS = 0;
 
 		var speaker = this.getPassageSpeaker(this.passage(idOrName));
 
 		// show animation
 		if (speaker != 'undefined') {
-      this.delayedTypingEvent = _.delay(
-        function(){
-          story.showTyping(idOrName);
-        },
-        delayMS * typingDelayRatio
-      );
-		} else {
-			delayMS = 1000;
+			this.delayedTypingEvent = _.delay(
+				function(){
+					story.showTyping(idOrName);
+				},
+				this.messageDelay
+			);
+			typingDurationMS = this.getPassageDelay(idOrName)
 		}
     
 		this.delayedPassageEvent = _.delay(
@@ -717,7 +733,7 @@ _.extend(Story.prototype, {
 				story.hideTyping();
 				story.show(idOrName, noHistory, noMove);
 			},
-			delayMS
+			this.messageDelay + typingDurationMS
 		);
 
 	},
@@ -742,8 +758,17 @@ _.extend(Story.prototype, {
 		var targetTextLength = targetSourceTextLength - targetUserResponseLength;
 		var msPerChar = 20;
 		var delayMS = targetTextLength * msPerChar;
-		var delayThresholded = Math.min(delayMS, this.maxPassageDelay);
-		return delayThresholded;
+		switch (true) {
+			case (delayMS < this.minPassageDelay):
+				return this.minPassageDelay;
+			case (delayMS > this.maxPassageDelay):
+				return this.maxPassageDelay;
+			default:
+				return delayMS;
+		}
+		// var delayThresholded = Math.max(delayMS, this.minPassageDelay);
+		// delayThresholded = Math.min(delayThresholded, this.maxPassageDelay);
+		// return delayThresholded;
 	},
 
 	/**
