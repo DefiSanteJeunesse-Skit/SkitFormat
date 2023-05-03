@@ -490,21 +490,21 @@ _.extend(Story.prototype, {
 
 		/**
 		 Save the old passage html to the passage history.
-		 **/
+		**/
 
 		if (!noMove) {
 			this.movePassageToHistory();
 		}
 
 		/**
-     Create passage element
-		 **/
+     	 Create passage element
+		**/
 
 		window.passage = passage;
 
-  	var speaker = this.getPassageSpeaker(passage);
+		var speaker = this.getPassageSpeaker(passage);
 
-    var passageElem;
+		var passageElem;
 		if (speaker == 'undefined') {
 			passageElem = $('<div class="meta-passage">' + passage.render() + '</div>');
 		} else {
@@ -520,14 +520,14 @@ _.extend(Story.prototype, {
 		if (!noHistory) {
 			this.recent.push(passage.id);
 			this.recent_dom.push(passageElem[0]);
-    }
+    	}
 
-    /**
+    	/**
 		 Add passage element to passage container element
-     **/
+    	**/
 
 		$('#passage')
-      .append(passageElem)
+      		.append(passageElem)
 			.fadeIn('slow');
 		
 		this.showUserResponses();
