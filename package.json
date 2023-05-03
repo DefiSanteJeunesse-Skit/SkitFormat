@@ -4,7 +4,7 @@
   "description": "A chat style story format based on Trialogue",
   "author": "DefiSanteJeunesse-Skit",
   "license": "MIT",
-  "repository": "https://github.com/DefiSanteJeunesse-Skit/trialogue",
+  "repository": "https://github.com/DefiSanteJeunesse-Skit/SkitFormat",
   "config": {
     "distDir": "dist/"
   },
