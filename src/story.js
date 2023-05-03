@@ -368,7 +368,7 @@ _.extend(Story.prototype, {
 				// show new passage, without moving the current passage into history, as that has been done already
 				var targetName = $(e.target).closest('[data-passage]').attr('data-passage');
 				var passageDelay = this.getPassageDelay(targetName);
-				this.showDelayed(targetName, false, true);
+				this.showDelayed(targetName, 0, false, true);
 			}
 		}.bind(this));
 
@@ -712,7 +712,7 @@ _.extend(Story.prototype, {
 	 @param idOrName {String or Number} ID or name of the passage
 	**/
 
-	showDelayed: function (idOrName, noHistory, noMove) {
+	showDelayed: function (idOrName, extraDelay = 0, noHistory, noMove) {
 		var typingDurationMS = 0;
 
 		var speaker = this.getPassageSpeaker(this.passage(idOrName));
@@ -725,7 +725,7 @@ _.extend(Story.prototype, {
 				},
 				this.messageDelay
 			);
-			typingDurationMS = this.getPassageDelay(idOrName)
+			typingDurationMS = this.getPassageDelay(idOrName) + extraDelay
 		}
     
 		this.delayedPassageEvent = _.delay(
