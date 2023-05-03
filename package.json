@@ -20,9 +20,9 @@
     "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-cssmin": "^4.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-contrib-yuidoc": "^1.0.0",
+    "grunt-contrib-yuidoc": "^0.7.0",
     "grunt-eslint": "^24.0.1",
     "jit-grunt": "^0.10.0",
-    "uglifyify": "^5.0.2"
+    "uglifyify": "^5.0.0"
   }
 }
