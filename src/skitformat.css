@@ -226,19 +226,8 @@ nav a.content-container:not(:first-child) {
   flex-direction: column;
   padding: 0 var(--size-normal);
   background: transparent;
-}
-.user-response-panel::before {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 100%;
-  z-index: -1;
-  background-color: var(--user-response-wrapper-bg-color);
-  /* Blur */
-  --blur-amount: var(--size-big);
-  left: calc(-2 * var(--blur-amount));
-  right: calc(-2 * var(--blur-amount));
-  filter: blur(var(--blur-amount));
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 84%, rgba(255,255,255,0) 100%);
 }
 
 .user-response-panel > hr {
