@@ -683,6 +683,28 @@ _.extend(Story.prototype, {
 		}
 		return speakerTag.substring(8);
 	},
+
+	/**
+	 Retrieves the speaker from the passage tags
+
+	 @method getPassageStyle
+	 @param passage {Passage} current window.passage object
+	 @return {String} Style name of passage
+	**/
+	
+	getPassageStyle: function(passage) {
+		if (!String.prototype.startsWith) {
+			String.prototype.startsWith = function(search, pos) {
+				return this.substr(!pos || pos < 0 ? 0 : +pos, search.length) === search;
+			};
+		}
+		var styleTag = _.find(passage.tags, function(tag){ return tag.startsWith('style-'); });
+
+		if (typeof styleTag === 'undefined') {
+			return 'undefined';
+		}
+		return styleTag;
+	},
 	
 	/**
 	 Returns the HTML source for a passage. This is most often used when
