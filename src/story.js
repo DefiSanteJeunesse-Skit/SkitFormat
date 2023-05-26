@@ -716,6 +716,7 @@ _.extend(Story.prototype, {
 
 	updateChatTheme: function(newTheme) {
 		document.documentElement.setAttribute("theme", newTheme)
+		console.log("Updated theme to ", newTheme)
 	},
 
 	/**
