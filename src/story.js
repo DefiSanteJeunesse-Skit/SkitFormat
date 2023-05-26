@@ -505,7 +505,7 @@ _.extend(Story.prototype, {
 		var speaker = this.getPassageSpeaker(passage);
 
 		var style = this.getPassageStyle(passage);
-
+		console.log("GetPassagestyle called");
     	var passageElem;
 		if (speaker == 'undefined') {
 			passageElem = $('<div class="meta-passage">' + passage.render() + '</div>');
@@ -694,16 +694,20 @@ _.extend(Story.prototype, {
 	**/
 	
 	getPassageStyle: function(passage) {
+		console.log("Get passage style beggin")
 		if (!String.prototype.startsWith) {
 			String.prototype.startsWith = function(search, pos) {
 				return this.substr(!pos || pos < 0 ? 0 : +pos, search.length) === search;
 			};
 		}
+		console.log("Get passage style middle")
 		var styleTag = _.find(passage.tags, function(tag){ return tag.startsWith('style-'); });
 
+		console.log("Style tag is",styleTag)
 		if (typeof styleTag === 'undefined') {
 			return 'undefined';
 		}
+		console.log("Get passage style end")
 		this.updateChatTheme(styleTag.substring(6));
 	},
 	
