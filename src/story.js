@@ -587,6 +587,14 @@ _.extend(Story.prototype, {
 	},
 
 	/**
+	 clear previous conversation messages
+	 **/
+
+	 clearChat: function () {
+		$('#phistory').empty();
+	},
+
+	/**
 	 render chosen UserResponse as passage in pHistory
 	 **/
 
