@@ -680,6 +680,9 @@ _.extend(Story.prototype, {
 			};
 		}
 		var speakerTag = _.find(passage.tags, function(tag){ return tag.startsWith('speaker-'); });
+
+		console.log("Speaker tag is",speakerTag)
+
 		if (typeof speakerTag === 'undefined') {
 			return 'undefined';
 		}
